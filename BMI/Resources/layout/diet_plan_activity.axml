@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblCategory"
+            android:text="jhj"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:layout_weight="0.22" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="371dp"
+            android:id="@+id/lblDietTips"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+            tools:text="Test 123"
+            android:text="n,mn" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
