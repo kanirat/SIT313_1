@@ -28,6 +28,7 @@ namespace BMI
         Spinner ddMonth;
         Spinner ddWeek;
         Button btnSave;
+        Button btnView;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -48,6 +49,7 @@ namespace BMI
             ddWeek = (Spinner)FindViewById(Resource.Id.ddWeek_Save);
 
             btnSave = (Button)FindViewById(Resource.Id.btnSave_Save);
+            btnView = (Button)FindViewById(Resource.Id.btnViewAll);
 
             ArrayAdapter<string> adapterInches = new ArrayAdapter<string>(Application.Context, Android.Resource.Layout.SimpleDropDownItem1Line, spinnerInch());
             ddInches.Adapter = adapterInches;
@@ -65,6 +67,12 @@ namespace BMI
             {
                 createDB();
                 Save();
+            };
+
+            btnView.Click += (object sender, System.EventArgs e) =>
+            {
+                //createDB();
+                GoToView();
             };
         }
 
@@ -166,7 +174,12 @@ namespace BMI
         }
 
 
-        
+        protected void GoToView()
+        {
+            Intent viewBMI = new Intent(Android.App.Application.Context, typeof(ViewAll));
+            //dietPlan.PutExtra("Category", lblCategory.Text.ToString().Substring(7));
+            StartActivity(viewBMI);
+        }
 
     }
 }

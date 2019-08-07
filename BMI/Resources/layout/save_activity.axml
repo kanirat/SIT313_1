@@ -123,6 +123,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnSave_Save" />
+        
+         <Button
+            android:text="View All"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnViewAll" />
 
     </LinearLayout>
 
