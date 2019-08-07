@@ -21,7 +21,7 @@ namespace BMI
         TextView lblResult;
         TextView lblCategory;
         Button btnSaveBMI;
-        Context currentContext;
+        
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,8 +42,15 @@ namespace BMI
             btnViewDietPlan = FindViewById<Button>(Resource.Id.btnViewDietPlan);
             btnSaveBMI = FindViewById<Button>(Resource.Id.btnSave);
             lblResult = FindViewById<TextView>(Resource.Id.lblResult);
+            if (savedInstanceState != null)
+            {
+                lblResult.Text = savedInstanceState.GetCharSequence("bmi");
+            }
             lblCategory = FindViewById<TextView>(Resource.Id.lblCategory);
-
+            if (savedInstanceState != null)
+            {
+                lblCategory.Text = savedInstanceState.GetCharSequence("category");
+            }
 
             ArrayAdapter<String> adapterInches = new ArrayAdapter<String>(Android.App.Application.Context, Android.Resource.Layout.SimpleDropDownItem1Line, SpinnerInch());
             ArrayAdapter<String> adapterFeet = new ArrayAdapter<String>(Android.App.Application.Context, Android.Resource.Layout.SimpleDropDownItem1Line, SpinnerFeet());
@@ -65,6 +72,16 @@ namespace BMI
             {
                 GoToSave();
             };
+        }
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
+            //outState.PutCharSequence("weight",txtWeight.Text);
+            //outState.PutInt("feet", int.Parse(ddFeet.SelectedItem.ToString()));
+            //outState.PutInt("inches", int.Parse(ddInches.SelectedItem.ToString()));
+
+            outState.PutCharSequence("bmi", lblResult.Text);
+            outState.PutCharSequence("category", lblCategory.Text);
         }
 
         public String[] SpinnerInch()
